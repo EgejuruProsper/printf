@@ -6,6 +6,7 @@
 #include <stdlib.h>
 
 int print_number(int n);
+int print_binary(int n);
 int _printf(const char *format, ...);
 int _putchax (char c);
 

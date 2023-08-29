@@ -50,6 +50,10 @@ int _printf(const char *format, ...)
 					}
 					count += print_number(num);
 					break;
+				case 'b':
+					num = va_arg(args, int);
+					count += print_binary(num);
+					break;
 				case '%':
 					write(1, format, 1);
 					count++;
@@ -86,6 +90,25 @@ int print_number(int n)
 	if (n / 10)
 		count += print_number(n / 10);
 	digit = n % 10 + '0';
+	write(1, &digit, 1);
+	count++;
+	return (count);
+}
+
+/**
+ * print_binary - Helper function to print an integer in binary
+ * @n: Integer to print in binary
+ *
+ * Return: Number of characters printed
+ */
+int print_binary(int n)
+{
+	int count = 0;
+	char digit;
+
+	if (n / 2)
+		count += print_binary(n / 2);
+	digit = n % 2 + '0';
 	write(1, &digit, 1);
 	count++;
 	return (count);
