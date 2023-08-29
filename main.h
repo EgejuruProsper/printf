@@ -5,6 +5,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 
+int print_number(int n);
 int _printf(const char *format, ...);
 int _putchax (char c);
 
